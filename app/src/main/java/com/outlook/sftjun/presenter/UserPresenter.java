@@ -16,8 +16,13 @@ public class UserPresenter implements IUserContract.Presenter {
     }
 
     @Override
-    public void saveUser(UserBean userBean) {
-        userBeanDao.insert(userBean);
+    public boolean saveUser(UserBean userBean) {
+        if(loadUser(userBean.getId()) == null) {
+            userBeanDao.insert(userBean);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override

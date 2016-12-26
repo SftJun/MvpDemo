@@ -19,7 +19,7 @@ public interface IUserContract {
     }
 
     interface Presenter extends IBasePresenter {
-        void saveUser(UserBean userBean);
+        boolean saveUser(UserBean userBean);
         UserBean loadUser(Long id);
     }
 }
